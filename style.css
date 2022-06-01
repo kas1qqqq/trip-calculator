@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+h1 {
+  margin: 0 !important;
+}
+
+#header-container {
+  color: white;
+  background-color: #f1f1ef;
+  border-radius: 0.375rem;
+  padding: 20px;
+  background: linear-gradient(to bottom, #3f535d 100%, #f1f1ef 100%);
+}
+
+#header-text {
+  border-radius: 0.375rem;
+  text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2), 0px -5px 35px rgba(255, 255, 255, 0.3);
+}
+
+input {
+  height: 49px;
+  background-color: #f1f1f1 !important;
+}
+
+.clearable {
+  background: url(./cross.svg) no-repeat right -12px center;
+  padding: 6px 30px 6px 12px;
+  /* Use the same right padding (18) in jQ! */
+  border-radius: 3px;
+  transition: background 0.4s;
+  background-size: 9px;
+}
+
+.clearable.x {
+  background-position: right 12px center;
+}
+
+/* (jQ) Show icon */
+.clearable.onX {
+  cursor: pointer;
+}
+
+/* (jQ) hover cursor style */
+.clearable::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.label-text {
+  color: #f1f1f1;
+  margin-left: 55px;
+  padding-bottom: 8px;
+}
+
+.tab-focus:focus {
+  outline: 3px solid #B9BD86;
+}
+
+/* .tab-focus-btn:focus {
+  border: 1px solid #B9BD86 !important;
+} */
+
+#buttonCalc {
+  background-color: #c19434 !important;
+  height: 49px;
+}
+
+#buttonCalc:hover {
+  box-shadow: 0px 5px 3px #3f535d !important;
+  color: black;
+}
+
+#buttonClear {
+  background-color: #34421e !important;
+  height: 49px;
+}
+
+#buttonClear:hover {
+  box-shadow: 0px 5px 4px #3f535d !important;
+  color: black;
+}
+
+hr {
+  height: 5px !important;
+  margin: 0 !important;
+  border-radius: 0.375rem;
+  background: rgb(255, 255, 255);
+}
+
+#footer-team-text {
+  color: #B9BD86;
+  padding: 3px;
+}
+
+#footer-author-text {
+  color: #f1f1ef;
+  padding: 3px;
+}
+
+#custom-height {
+  padding: 5% 0px 25% 0px;
+}
+
+@media only screen and (min-width: 375px) {
+  #custom-height {
+    height: auto !important;
+  }
+
+  #header-container {
+    padding: 10px;
+    margin-bottom: 12px !important;
+  }
+
+  .label-text {
+    padding-bottom: 4px;
+  }
+}
