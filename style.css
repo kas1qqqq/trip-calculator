@@ -23,7 +23,8 @@ h1 {
   background-color: #f1f1ef;
   border-radius: 0.375rem;
   padding: 20px;
-  background: linear-gradient(to bottom, #3f535d 100%, #f1f1ef 100%);
+  background-color: #B9BD86;
+  transition: background-color 7s;
 }
 
 #header-text {

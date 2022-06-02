@@ -73,3 +73,17 @@ $(document)
     ev.preventDefault()
     $(this).removeClass('x onX').val('').change()
   })
+
+//changeable header background 
+function randomColor() {
+  return (
+    '#' + ('000000' + ((Math.random() * 0xb9bd86) << 0).toString(16)).slice(-6)
+  )
+}
+
+function setColor() {
+  document.getElementById('header-container').style.backgroundColor =
+    randomColor()
+  setTimeout(setColor, 600)
+}
+setColor()
