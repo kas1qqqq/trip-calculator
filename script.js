@@ -12,27 +12,27 @@ let consumption = (document.getElementById('input-5').value = 10) //Consumption
 function calculateBtn() {
   var earned = document.getElementById('input-1').value
   var distance = document.getElementById('input-2').value
-  var tip = document.getElementById('input-3').value
+  var spending = document.getElementById('input-3').value
   var priceFuel = document.getElementById('input-4').value
   var consumption = document.getElementById('input-5').value
   var fuelResult = (distance / 100) * consumption * priceFuel
   var resultExp = parseFloat(earned - fuelResult)
-  var resultExpTip =
-    parseFloat(tip) + parseFloat(earned) - parseFloat(fuelResult)
+  var resultExpSpending =
+    parseFloat(earned) - parseFloat(spending) - parseFloat(fuelResult)
 
-  if (tip > 0 && earned === '' && distance === '') {
+  if (spending > 0 && earned === '' && distance === '') {
     document.getElementById('resultExp').innerHTML = 'Fill the two fields above'
   } else if (earned === '' && distance === '') {
     document.getElementById('resultExp').innerHTML = 'Enter a value first'
     document.getElementById('resultExp').style.visibility = 'visible'
   } else if (earned > 0 && distance === '') {
     document.getElementById('resultExp').innerHTML = 'Fill the distance'
-  } else if (distance > 0 && earned > 0 && tip === '') {
+  } else if (distance > 0 && earned > 0 && spending === '') {
     document.getElementById('resultExp').innerHTML =
       'Net profit: ' + parseFloat(resultExp).toFixed(2) + ' uah'
-  } else if (distance > 0 && earned > 0 && tip > 0) {
+  } else if (distance > 0 && earned > 0 && spending > 0) {
     document.getElementById('resultExp').innerHTML =
-      'Net profit: ' + parseFloat(resultExpTip).toFixed(2) + ' uah'
+      'Net profit: ' + parseFloat(resultExpSpending).toFixed(2) + ' uah'
   } else if (earned === '') {
     document.getElementById('resultExp').innerHTML = 'Fill the earning'
   } else {
@@ -43,11 +43,11 @@ function calculateBtn() {
 function clearBtn() {
   var earned = document.getElementById('input-1').value
   var distance = document.getElementById('input-2').value
-  var tip = document.getElementById('input-3').value
+  var spending = document.getElementById('input-3').value
   document.getElementById('form').reset()
-  if (earned === '' && distance === '' && tip === '') {
+  if (earned === '' && distance === '' && spending === '') {
     document.getElementById('resultExp').innerHTML = 'Nothing to clear'
-  } else if (earned > 0 || distance > 0 || tip > 0) {
+  } else if (earned > 0 || distance > 0 || spending > 0) {
     document.getElementById('resultExp').innerHTML = 'Cleared'
   } else {
     document.getElementById('resultExp').style.visibility = 'hidden'
@@ -74,16 +74,16 @@ $(document)
     $(this).removeClass('x onX').val('').change()
   })
 
-//changeable header background 
+//changeable header background
 function randomColor() {
   return (
-    '#' + ('000000' + ((Math.random() * 0xb9bd86) << 0).toString(16)).slice(-6)
+    '#' + ('111111' + ((Math.random() * 0xb9bd86) << 0).toString(16)).slice(-6)
   )
 }
 
 function setColor() {
   document.getElementById('header-container').style.backgroundColor =
     randomColor()
-  setTimeout(setColor, 600)
+  setTimeout(setColor, 2000)
 }
 setColor()
