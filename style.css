@@ -27,19 +27,23 @@ h1 {
   transition: background-color 7s;
 }
 
+#carHeader {
+  transition: 7s;
+}
+
 #header-text {
   border-radius: 0.375rem;
   text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2), 0px -5px 35px rgba(255, 255, 255, 0.3);
 }
 
 input {
-  height: 49px;
+  height: 45px;
   background-color: #f1f1f1 !important;
 }
 
 .clearable {
   background: url(./cross.svg) no-repeat right -12px center;
-  padding: 6px 30px 6px 12px;
+  padding: 6px 25px 6px 12px;
   /* Use the same right padding (18) in jQ! */
   border-radius: 3px;
   transition: background 0.4s;
@@ -47,7 +51,7 @@ input {
 }
 
 .clearable.x {
-  background-position: right 12px center;
+  background-position: right 10px center;
 }
 
 /* (jQ) Show icon */
@@ -69,16 +73,18 @@ input {
 }
 
 .tab-focus:focus {
-  outline: 3px solid #B9BD86;
+  outline: 4px solid #B9BD86;
+  outline-offset: -1px;
+  font-weight: bold;
 }
-
-/* .tab-focus-btn:focus {
-  border: 1px solid #B9BD86 !important;
-} */
 
 #buttonCalc {
   background-color: #c19434 !important;
   height: 49px;
+}
+
+#buttonCalc:active {
+  transform: translateY(2px);
 }
 
 #buttonCalc:hover {
@@ -89,6 +95,10 @@ input {
 #buttonClear {
   background-color: #34421e !important;
   height: 49px;
+}
+
+#buttonClear:active {
+  transform: translateY(2px);
 }
 
 #buttonClear:hover {
@@ -114,12 +124,12 @@ hr {
 }
 
 #custom-height {
-  padding: 5% 0px 25% 0px;
+  padding: 5%;
 }
 
-@media only screen and (min-width: 375px) {
+@media only screen and (min-width: 300px) {
   #custom-height {
-    height: auto !important;
+    height: 100% !important;
   }
 
   #header-container {
@@ -129,5 +139,17 @@ hr {
 
   .label-text {
     padding-bottom: 4px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  #custom-height {
+    height: 100% !important;
+  }
+}
+
+@media only screen and (min-height: 850px) {
+  #custom-height {
+    height: 100vh !important;
   }
 }

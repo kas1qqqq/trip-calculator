@@ -5,19 +5,19 @@ const tooltipList = [...tooltipTriggerList].map(
   (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
 )
 
-//Can be changed into an actual
-let priceFuel = (document.getElementById('input-4').value = 52) //Price fuel
-let consumption = (document.getElementById('input-5').value = 10) //Consumption
+// Input data to price and consumption. Can be changed into an actual
+let priceFuel = (document.getElementById('input-4').value = 52)
+let consumption = (document.getElementById('input-5').value = 10.5)
 
 function calculateBtn() {
-  var earned = document.getElementById('input-1').value
-  var distance = document.getElementById('input-2').value
-  var spending = document.getElementById('input-3').value
-  var priceFuel = document.getElementById('input-4').value
-  var consumption = document.getElementById('input-5').value
-  var fuelResult = (distance / 100) * consumption * priceFuel
-  var resultExp = parseFloat(earned - fuelResult)
-  var resultExpSpending =
+  let earned = document.getElementById('input-1').value
+  let distance = document.getElementById('input-2').value
+  let spending = document.getElementById('input-3').value
+  let priceFuel = document.getElementById('input-4').value
+  let consumption = document.getElementById('input-5').value
+  let fuelResult = (distance / 100) * consumption * priceFuel
+  let resultExp = parseFloat(earned - fuelResult)
+  let resultExpSpending =
     parseFloat(earned) - parseFloat(spending) - parseFloat(fuelResult)
 
   if (spending > 0 && earned === '' && distance === '') {
@@ -29,10 +29,18 @@ function calculateBtn() {
     document.getElementById('resultExp').innerHTML = 'Fill the distance'
   } else if (distance > 0 && earned > 0 && spending === '') {
     document.getElementById('resultExp').innerHTML =
-      'Net profit: ' + parseFloat(resultExp).toFixed(2) + ' uah'
+      'Net profit: ' +
+      new Intl.NumberFormat('de-DE', {
+        style: 'currency',
+        currency: 'UAH',
+      }).format(resultExp)
   } else if (distance > 0 && earned > 0 && spending > 0) {
     document.getElementById('resultExp').innerHTML =
-      'Net profit: ' + parseFloat(resultExpSpending).toFixed(2) + ' uah'
+      'Net profit: ' +
+      new Intl.NumberFormat('de-DE', {
+        style: 'currency',
+        currency: 'UAH',
+      }).format(resultExpSpending)
   } else if (earned === '') {
     document.getElementById('resultExp').innerHTML = 'Fill the earning'
   } else {
@@ -40,10 +48,11 @@ function calculateBtn() {
   }
 }
 
+// Logic of clear button
 function clearBtn() {
-  var earned = document.getElementById('input-1').value
-  var distance = document.getElementById('input-2').value
-  var spending = document.getElementById('input-3').value
+  let earned = document.getElementById('input-1').value
+  let distance = document.getElementById('input-2').value
+  let spending = document.getElementById('input-3').value
   document.getElementById('form').reset()
   if (earned === '' && distance === '' && spending === '') {
     document.getElementById('resultExp').innerHTML = 'Nothing to clear'
@@ -56,7 +65,7 @@ function clearBtn() {
   document.getElementById('input-5').value = consumption
 }
 
-//clerable cross
+// Cross icon to clear inputs field
 function tog(v) {
   return v ? 'addClass' : 'removeClass'
 }
@@ -74,16 +83,15 @@ $(document)
     $(this).removeClass('x onX').val('').change()
   })
 
-//changeable header background
-function randomColor() {
-  return (
-    '#' + ('111111' + ((Math.random() * 0xb9bd86) << 0).toString(16)).slice(-6)
-  )
-}
-
-function setColor() {
+// Changeable colors of header block and header's block car via chroma.js library
+;(function setColorHeader() {
   document.getElementById('header-container').style.backgroundColor =
-    randomColor()
-  setTimeout(setColor, 2000)
-}
-setColor()
+    chroma.random()
+  setTimeout(setColorHeader, 1000)
+})()
+;(function setColorCarHeader() {
+  const carHeader = document.getElementById('carHeader')
+  const luminance = chroma(chroma.random()).luminance()
+  carHeader.style.fill = luminance > 0.5 ? 'black' : 'white'
+  setTimeout(setColorCarHeader, 1000)
+})()
