@@ -1,1 +1,2 @@
-# Trip calculator for ukrainian taxi drivers
+# Trip calculator
+Manager of the net profit for taxi drivers.
